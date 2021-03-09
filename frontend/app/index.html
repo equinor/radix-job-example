@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test of Blob Fuse volume mount</title>
+</head>
+<body>
+    <h3>Test of Blob Fuse volume mount</h3>
+    <p>
+        Files should be stored in Azure blob container. These files will be mapped (synced) to the folder "/app/image-source" in this example.
+        These files remain in this folder during 2 minutes and after that they will be re-loaded if another load/download request came.
+    </p>
+    <p>
+        See more on <a href="https://www.radix.equinor.com/docs/reference-radix-config/#volumemounts">Radix documentation</a> about volume mounts.
+    </p>
+    <h2>Container 1</h2>
+    <p><a href="http://image-builder:8002/api/v1/job" target="_blank">jobs</a></p>
+    <ol>
+        <li><img src="./image-storage/image-01.png" /></li>
+        <li><img src="./image-storage/image-02.png" /></li>
+        <li><img src="./image-storage/image-03.png" /></li>
+        <li><img src="./image-storage/image-04.png" /></li>
+        <li><img src="./image-storage/image-05.png" /></li>
+        <li><img src="./image-storage/image-06.png" /></li>
+        <li><img src="./image-storage/image-07.png" /></li>
+    </ol>
+    <h2>Container 2</h2>
+    <ol>
+        <li><img src="./image-storage2/image-05.png" /></li>
+        <li><img src="./image-storage2/image-06.png" /></li>
+        <li><img src="./image-storage2/image-07.png" /></li>
+    </ol>
+</body>
+</html>
