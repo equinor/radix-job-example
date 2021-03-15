@@ -10,7 +10,7 @@ spec:
   jobs:
     - name: image-builder
       src: image-builder
-      schedulerPort: 8088
+      schedulerPort: 8089
       payload:
         path: /scheduler
       variables:
