@@ -5,6 +5,9 @@ RUN apk update && \
     apk add --no-cache gcc musl-dev && \
     go get -u golang.org/x/lint/golint github.com/frapposelli/wwhrd
 
+RUN addgroup -S -g 1001 radix-non-root-group && \
+    adduser -S -u 1001 -G radix-non-root-group radix-non-root-user
+
 WORKDIR ..
 
 # Install project dependencies
@@ -14,8 +17,7 @@ RUN go mod download
 
 # Build
 RUN CGO_ENABLED=0 GOOS=linux go build -ldflags "-s -w" -a -installsuffix cgo -o /usr/local/bin/radix-job-example
-RUN adduser -D -g '' radix-job-example
 
-USER radix-job-example
+USER radix-non-root-group
 EXPOSE 8080
 ENTRYPOINT ["/usr/local/bin/radix-job-example"]
