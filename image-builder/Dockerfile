@@ -18,6 +18,6 @@ RUN go mod download
 # Build
 RUN CGO_ENABLED=0 GOOS=linux go build -ldflags "-s -w" -a -installsuffix cgo -o /usr/local/bin/radix-job-example
 
-USER radix-non-root-group
+USER 1001
 EXPOSE 8080
 ENTRYPOINT ["/usr/local/bin/radix-job-example"]
